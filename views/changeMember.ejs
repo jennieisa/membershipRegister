@@ -1,0 +1,17 @@
+<%- include('header') %>
+    <h1>ÄNDRA MEDLEM</h1>
+    <form action="/members/:id/changeMember" method="post">
+        <label for="name">Namn:</label>
+        <input type="text" id="name" name="name" value="<%= name %>">
+        <label for="email">Epost:</label>
+        <input type="email" id="email" name="email" value="<%= email %>">
+        <label for="phone">Telefonnummer:</label>
+        <input type="tel" id="phone" name="phone" value="<%= phone %>">
+        <label for="created">Medlemskap skapades:</label>
+        <input type="date" id="created" name="created" value="<%= created %>">
+        <label for="favoriteWorkout">Favorit träningspass:</label>
+        <input type="text" id="favoriteWorkout" name="favoriteWorkout" value="<%= favoriteWorkout %>">
+        <button onclick="window.location.href='/member/<%= _id %>';">Avbryt</button>
+        <button type="submit">Spara</button>
+    </form>
+<%- include('footer') %>

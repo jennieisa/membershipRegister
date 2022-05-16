@@ -64,6 +64,15 @@ app.get('/member/:id/delete', async (req, res) => {
 
 })
 
+//Hämtar changeMember sidan när vi går in på localhost/member/:id/changeMember
+app.get('/member/:id/changeMember', async (req, res) => {
+
+    const member = await membersCollection.findOne({ _id: ObjectId(req.params.id) });
+
+    res.render('changeMember', member);
+
+})
+
 app.listen(port, () => {
 
     console.log(`listening on port ${port}`);
