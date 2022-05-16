@@ -2,12 +2,9 @@
     <h1 class="pageHeading">MEDLEMMAR</h1>
     <main>
         <section class="selectWrapper">
-            <button class="sortBtn">Sortera pil ner</button>
-            <div class="dropdown">
-                <a href="/members?sort=0">Ingen</a>
-                <a href="/members?sort=1">Namn A-Ö</a>
-                <a href="/members?sort=-1">Namn Ö-A</a>
-            </div>
+            <button onclick="window.location.href='/members?sort=0'">Ingen sortering</button>
+            <button onclick="window.location.href='/members?sort=1'">Namn A-Ö</button>
+            <button onclick="window.location.href='/members?sort=-1'">Namn Ö-A</button>
         </section>
         <ul class="membersList">
             <% members.forEach(member => { %>
