@@ -46,6 +46,24 @@ app.get('/members/createMember', (req, res) => {
 
 })
 
+//POST request till /members/createMember för att skapa ny användare
+app.post('/members/createMember', async (req, res) => {
+
+    await membersCollection.insertOne(req.body);
+
+    res.redirect('/members');
+
+})
+
+//DELETE request till /member/:id/delete
+app.get('/member/:id/delete', async (req, res) => {
+
+    await membersCollection.deleteOne({ _id: ObjectId(req.params.id) });
+
+    res.redirect('/members');
+
+})
+
 app.listen(port, () => {
 
     console.log(`listening on port ${port}`);
