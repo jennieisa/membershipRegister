@@ -30,12 +30,20 @@ app.get('/members', async (req, res) => {
 
 })
 
+//Hämtar member sidan när vi går in på localhost:3000/members/member/id
 app.get('/members/member/:id', async (req, res) => {
 
     const member = await membersCollection.findOne({ _id: ObjectId(req.params.id) });
 
     res.render('member', member);
-    
+
+})
+
+//Hämtar createMember sidan när vi går in på localhost/members/createMember
+app.get('/members/createMember', (req, res) => {
+
+    res.render('createMember');
+
 })
 
 app.listen(port, () => {
