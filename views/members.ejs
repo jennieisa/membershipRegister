@@ -2,12 +2,12 @@
     <h1 class="pageHeading">MEDLEMMAR</h1>
     <main>
         <section class="selectWrapper">
-            <select name="" id="">
-                <option value="">sortera</option>
-                <option value="">Namn (A-Ö)</option>
-                <option value="">Namn (Ö-A)</option>
-                <option value="">Ingen</option>
-            </select>
+            <button class="sortBtn">Sortera pil ner</button>
+            <div class="dropdown">
+                <a href="/members?sort=0">Ingen</a>
+                <a href="/members?sort=1">Namn A-Ö</a>
+                <a href="/members?sort=-1">Namn Ö-A</a>
+            </div>
         </section>
         <ul class="membersList">
             <% members.forEach(member => { %>

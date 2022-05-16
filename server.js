@@ -21,12 +21,24 @@ app.get('/', (req, res) => {
 
 })
 
-//Hämtar members sidan när vi går in på localhost:3000/members
+//Hämtar members sidan när vi går in på localhost:3000/members och alla medlemmar. Sorterar medlemmar om man valt det
 app.get('/members', async (req, res) => {
 
-    const members = await membersCollection.find({}).toArray();
+    const sort = parseInt(req.query.sort) || 0;
+    
+    if (sort === 0) {
 
-    res.render('members', { members });
+        const members = await membersCollection.find({}).toArray();
+
+        res.render('members', { members });
+
+    } else {
+
+        const members = await membersCollection.find({}).sort({ name: sort }).toArray();
+
+        res.render('members', { members });
+
+    }
 
 })
 
@@ -81,6 +93,7 @@ app.post('/api/member/:id/changeMember', async (req, res) => {
     res.redirect(`/members/member/${req.params.id}`);
 
 })
+
 
 app.listen(port, () => {
 
