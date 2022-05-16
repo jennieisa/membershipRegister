@@ -1,0 +1,26 @@
+<%- include('header') %> 
+    <h1 class="pageHeading">MEDLEMMAR</h1>
+    <main>
+        <section class="selectWrapper">
+            <select name="" id="">
+                <option value="">sortera</option>
+                <option value="">Namn (A-Ö)</option>
+                <option value="">Namn (Ö-A)</option>
+                <option value="">Ingen</option>
+            </select>
+        </section>
+        <ul class="membersList">
+            <% members.forEach(member => { %>
+                <li class="memberLi shadow">
+                    <a href="/member/<%= member._id %>" class="noLinkStyle">
+                        <!--<span class="iconify" data-icon="healthicons:exercise-weights" style="color: #f4f4ee;" data-width="70" data-height="70"></span> -->
+                        <section class="memberInfo">
+                            <p class="memberName"><%= member.name %></p>
+                            <p><%= member.email %></p>
+                        </section>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+<%- include('footer') %> 
