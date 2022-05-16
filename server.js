@@ -72,7 +72,7 @@ app.get('/member/:id/delete', async (req, res) => {
 
     await membersCollection.deleteOne({ _id: ObjectId(req.params.id) });
 
-    res.redirect('members');
+    res.redirect('/members');
 
 })
 

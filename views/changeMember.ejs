@@ -1,5 +1,5 @@
 <%- include('header') %>
-    <h1>ÄNDRA MEDLEM</h1>
+    <h1 class="pageHeading">ÄNDRA MEDLEM</h1>
     <form action="/api/member/<%= _id %>/changeMember" method="post">
         <label for="name">Namn:</label>
         <input type="text" id="name" name="name" value="<%= name %>">

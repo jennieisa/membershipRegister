@@ -1,8 +1,8 @@
 <%- include('header') %>
     <h1 class="pageHeading">MEDLEM</h1>
     <main class="memberPage">
-        <article class="memberArticle shadow">
-            <section>
+        <article class="memberArticle">
+            <section class="memberIcon">
                 <span class="iconify" data-icon="healthicons:exercise-weights" style="color: #f4f4ee;" data-width="70" data-height="70"></span>
             </section>
             <section>
@@ -14,7 +14,7 @@
             </section>
         </article>
         <section class="buttonSection">
-            <button onclick="window.location.href='/member/<%= _id %>/delete';" class="deleteMember shadow">Ta bort medlem</button>
+            <button onclick="window.location.href='/member/<%= _id %>/delete'" class="deleteMember shadow">Ta bort medlem</button>
             <button onclick="window.location.href='/member/<%= _id %>/changeMember'" class="changeMember shadow">Ändra uppgifter</button>
         </section>
     </main>
