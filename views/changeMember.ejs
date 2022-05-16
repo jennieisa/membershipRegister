@@ -1,6 +1,6 @@
 <%- include('header') %>
     <h1>ÄNDRA MEDLEM</h1>
-    <form action="/members/:id/changeMember" method="post">
+    <form action="/api/member/<%= _id %>/changeMember" method="post">
         <label for="name">Namn:</label>
         <input type="text" id="name" name="name" value="<%= name %>">
         <label for="email">Epost:</label>
@@ -11,7 +11,7 @@
         <input type="date" id="created" name="created" value="<%= created %>">
         <label for="favoriteWorkout">Favorit träningspass:</label>
         <input type="text" id="favoriteWorkout" name="favoriteWorkout" value="<%= favoriteWorkout %>">
-        <button onclick="window.location.href='/member/<%= _id %>';">Avbryt</button>
-        <button type="submit">Spara</button>
+        <button type="button" onclick="window.location.href='/members/member/<%= _id %>'">Avbryt</button>
+        <button type="submit" onclick="window.location.href='/members/member/<% _id %>'">Spara</button>
     </form>
 <%- include('footer') %>

@@ -60,7 +60,7 @@ app.get('/member/:id/delete', async (req, res) => {
 
     await membersCollection.deleteOne({ _id: ObjectId(req.params.id) });
 
-    res.redirect('/members');
+    res.redirect('members');
 
 })
 
@@ -70,6 +70,15 @@ app.get('/member/:id/changeMember', async (req, res) => {
     const member = await membersCollection.findOne({ _id: ObjectId(req.params.id) });
 
     res.render('changeMember', member);
+
+})
+
+//POST request till /members/:id/changeMember för att ändra uppgifter om en användare
+app.post('/api/member/:id/changeMember', async (req, res) => {
+
+    const member = await membersCollection.updateOne({ _id: ObjectId(req.params.id) }, { $set: (req.body) });
+
+    res.redirect(`/members/member/${req.params.id}`);
 
 })
 
