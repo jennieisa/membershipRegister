@@ -21,12 +21,21 @@ app.get('/', (req, res) => {
 
 })
 
+//Hämtar members sidan när vi går in på localhost:3000/members
 app.get('/members', async (req, res) => {
 
     const members = await membersCollection.find({}).toArray();
 
     res.render('members', { members });
 
+})
+
+app.get('/members/member/:id', async (req, res) => {
+
+    const member = await membersCollection.findOne({ _id: ObjectId(req.params.id) });
+
+    res.render('member', member);
+    
 })
 
 app.listen(port, () => {

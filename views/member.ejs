@@ -1,0 +1,21 @@
+<%- include('header') %>
+    <h1 class="pageHeading">MEDLEM</h1>
+    <main class="memberPage">
+        <article class="memberArticle shadow">
+            <section>
+                <span class="iconify" data-icon="healthicons:exercise-weights" style="color: #f4f4ee;" data-width="70" data-height="70"></span>
+            </section>
+            <section>
+                <p class="memberName">Namn: <%= name %></p>
+                <p>Email: <%= email %></p>
+                <p>Telefonnummer: <%= phone %></p>
+                <p>Medlem sedan: <%= created %></p>
+                <p>Favorit träningspass: <%= favoriteWorkout %></p>
+            </section>
+        </article>
+        <section class="buttonSection">
+            <button onclick="window.location.href='/delete/<%= _id %>';" class="deleteMember shadow">Ta bort medlem</button>
+            <button onclick="window.location.href='/member/<%= _id %>/changeMember'" class="changeMember shadow">Ändra uppgifter</button>
+        </section>
+    </main>
+<%- include('footer') %> 
